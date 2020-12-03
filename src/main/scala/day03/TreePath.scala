@@ -30,10 +30,6 @@ object TreePath {
     lines
   }
   def getMap = MapPosition(readFile)
-  def printReturn[A](a: A): A = {
-    println(a)
-    a
-  }
 
   def travel(dx: Int, dy: Int): TravelInfo = {
     def doTravel(travelInfo: TravelInfo): TravelInfo = {
@@ -60,18 +56,13 @@ object TreePath {
       (1, 2),
     )
     val totalTrees: List[Long] = steps.map{
-      case (dx, dy) => printReturn({println("-------------------"); travel(dx ,dy).nTrees})
+      case (dx, dy) =>  travel(dx ,dy).nTrees
     }
-    println(totalTrees, totalTrees.product)
     totalTrees.product
   }
 
   def main(args: Array[String]): Unit = {
-//    println("PART I", travel(1, 1).nTrees)
-//    println("PART I", travel(3, 1).nTrees)
-//    println("PART I", travel(5, 1).nTrees)
-//    println("PART I", travel(7, 1).nTrees)
-//    println("PART I", travel(1, 2).nTrees)
+    println("PART I", travel(3, 1).nTrees)
     println("PART II", multiTravel)
   }
 }
