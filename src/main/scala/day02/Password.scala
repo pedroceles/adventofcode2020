@@ -1,4 +1,4 @@
-package day2
+package day02
 
 case class ParsedLine(from: Int, to: Int, letter: Char, password: String) {
   def isValid: Boolean = {
